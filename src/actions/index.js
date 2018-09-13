@@ -1,6 +1,8 @@
 import { FETCH_MOVIES, FETCH_TITLE_MOVIE, FETCH_CLICKED_MOVIE } from '../constants';
 import axios from 'axios';
 
+import { MOVIE_API_KEY } from './apiKey';
+
 // export const fetchMovies = () => {
 //     return {
 //         type: FETCH_MOVIES,
@@ -11,7 +13,7 @@ import axios from 'axios';
 export const fetchMovies = () => dispatch => {
     
     axios
-        .get(`http://www.omdbapi.com/?s=superman&apikey=713fbeb2&p=10`)
+        .get(`http://www.omdbapi.com/?s=superman&apikey=${MOVIE_API_KEY}&p=10`)
         .then(results => {
             
             dispatch({
