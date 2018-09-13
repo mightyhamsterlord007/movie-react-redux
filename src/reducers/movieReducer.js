@@ -1,7 +1,8 @@
-import { FETCH_MOVIES } from '../constants';
+import { FETCH_MOVIES, FETCH_TITLE_MOVIE, FETCH_CLICKED_MOVIE } from '../constants';
 
 let initialState = {
-    fetchedMovies: null
+    fetchedMovies: null,
+    clickedMovie: null
 }
 
 export default (state = initialState, action) => {
@@ -17,7 +18,21 @@ export default (state = initialState, action) => {
             updated.fetchedMovies = movies;
 
             return updated;
+        case FETCH_TITLE_MOVIE:
 
+            let fetchedTitleMovie = action.data.data.Search;
+
+            updated.fetchedMovies = fetchedTitleMovie;
+
+            return updated;
+
+        case FETCH_CLICKED_MOVIE:
+
+            let clickedMovie = action.data.data;
+
+            updated.clickedMovie = clickedMovie;
+
+            return updated
         default: 
             return state;
     }

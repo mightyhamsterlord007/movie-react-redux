@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
-const Movies = (props) => {
+const Movie = (props) => {
     return (
         <div style={{float: 'left', height: 500, width: 500}}>
-            <Link to={`movie/${props.item.imdbID}`} ><img src={props.item.Poster} /></Link>
+            <img src={props.item.Poster} />
             <br />
             <span>{props.item.Title}</span>
             <br />
@@ -13,4 +12,4 @@ const Movies = (props) => {
     )
 }
 
-export default Movies;
+export default Movie;

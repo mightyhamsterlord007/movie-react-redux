@@ -1,4 +1,4 @@
-import { FETCH_MOVIES } from '../constants';
+import { FETCH_MOVIES, FETCH_TITLE_MOVIE, FETCH_CLICKED_MOVIE } from '../constants';
 import axios from 'axios';
 
 // export const fetchMovies = () => {
@@ -12,11 +12,11 @@ export const fetchMovies = () => dispatch => {
     
     axios
         .get(`http://www.omdbapi.com/?s=superman&apikey=713fbeb2&p=10`)
-        .then(result => {
+        .then(results => {
             
             dispatch({
                 type: FETCH_MOVIES,
-                data: result
+                data: results
             });
 
         })
@@ -26,3 +26,36 @@ export const fetchMovies = () => dispatch => {
 
 } 
 
+export const fetchTitleMovies = (title) => dispatch => {
+
+    axios
+        .get(`http://www.omdbapi.com/?s=${title}&apikey=713fbeb2&p=10`)
+        .then( result => {
+            dispatch({
+                type: FETCH_TITLE_MOVIE,
+                data: result
+            })
+        })
+        .catch(err => {
+            console.log(err);
+        });
+
+}
+
+export const getClickedMovie = (id) => dispatch => {
+
+    axios
+        .get(`http://www.omdbapi.com/?i=${id}&plot=full&apikey=713fbeb2`)
+        .then(result => {
+            
+            dispatch({
+                type: FETCH_CLICKED_MOVIE,
+                data: result
+            })
+
+        }) 
+        .catch(err => {
+            console.log(err);
+        });
+
+}
