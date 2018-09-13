@@ -3,6 +3,7 @@ import { Search } from '../containers';
 
 class Home extends Component {
   render() {
+    
     return (
       <div>
         <Search />

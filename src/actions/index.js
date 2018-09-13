@@ -4,7 +4,7 @@ import axios from 'axios';
 // export const fetchMovies = () => {
 //     return {
 //         type: FETCH_MOVIES,
-//         data: 'DATA FETCH MOVIES'
+//         data: 'THIS IS DATA'
 //     }
 // } 
 
@@ -12,8 +12,13 @@ export const fetchMovies = () => dispatch => {
     
     axios
         .get(`http://www.omdbapi.com/?s=superman&apikey=713fbeb2&p=10`)
-        .then(res => {
-            console.log(res)
+        .then(result => {
+            
+            dispatch({
+                type: FETCH_MOVIES,
+                data: result
+            });
+
         })
         .catch(err => {
             console.log(err);
