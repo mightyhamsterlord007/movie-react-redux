@@ -1,8 +1,10 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-const reducers = combineReducers({
+import  { movieReducer } from '../reducers';
 
+const reducers = combineReducers({  
+    movies: movieReducer
 });
 
 const initialState = {};
